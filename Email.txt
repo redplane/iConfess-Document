@@ -1,0 +1,47 @@
+[User forgot password] - api/user/request-reset-password
+Template:
+	Hi <nickname>
+	This email is sent to you because someone requested our system to reset your account password.
+	If that person was not you. Please ignore this email.
+	If you took this action, please click the following link: <url>
+	
+	Thanks,
+	iConfess support team
+	
+[User registration] - api/user/basic-register
+Template:
+	Hi <nickname>
+	This email sent to you because there was someone used your email address to register an account in our iConfess system.
+	If that was you. Please click the following link to activate your account {{url}}
+	Otherwise, please ignore this email.
+	
+	Thanks,
+	iConfess support team.
+	
+[Topic delete] - (DELETE) api/topic/{id}
+Template:
+	Hi <nickname>
+	Your topic <topicName> has been deleted by administrator.
+	The reason is: <reason>
+	
+	Thanks,
+	iConfess support team
+	
+[Reply delete] - (DELETE) api/reply/{id}
+Template:
+	Hi <nickname>
+	Your reply in topic <topicName> has been deleted by administrator.
+	The reason is: <reason>
+	
+	Thanks,
+	iConfess support team.
+	
+[Accont delete] - (DELETE) api/account/{id}
+Template:
+	
+	Hi <nickname>
+	Your account has been banned
+	The reason is: <reason>
+	
+	Thanks,
+	iConfess support team.
