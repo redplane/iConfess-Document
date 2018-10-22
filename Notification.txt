@@ -1,0 +1,127 @@
+- Added new category group (api/category-group)
+	+ Target: Admin group
+	+ Hub:
+		* Event name: event-add_category_group
+		* Parameters: 'CategoryGroup' instance
+	+ Push message:
+		* Extra info
+		* Message: Someone added new category group
+		* Parameters: 'CategoryGroup' instance
+
+- Edited new category group (api/category-group)
+	+ Target: Admin group
+	+ Hub:
+		* Event name: event-edit_category_group
+		* Parameters: 'CategoryGroup' instance
+	+ Push messafe:
+		* Extra info
+		* Message: Someone edited category group
+		* Parameters: 'CategoryGroup' instance
+
+=============================================================================
+
+- Added new category(api/category)
+	+ Target: Admin group
+	+ Hub:
+		* Event name: event-add_category
+		* Parameters: 'Category' instance
+	+ Push message:
+		* Extra info
+		* Message: Someone added new category
+		* Parameters: 'Category' instance
+
+- Edited new category(api/category)
+	+ Target: Admin group
+	+ Hub:
+		* Event name: event-edit_category
+		* Parameters: 'Category' instance
+	+ Push message:
+		* Extra info
+		* Message: Someone edited category
+		* Parameters: 'Category' instance
+
+- Follow a category(api/category)
+	+ Target: Admin group
+	+ Hub:
+		* Event name: follow-category
+		* Parameters: 
+			* `Follower name`
+                	* `Category name`
+                	* `Follower created time`
+	+ Push message:
+		* Extra info
+		* Message: Someone follow category
+		* Parameters:
+			* `Follower name`
+                	* `Category name`
+                	* `Follower created time`
+
+=============================================================================
+
+- Added new topic(api/topic)
+	+ Target: Admin group
+	+ Hub:
+		* Event name: event-add_topic
+		* Parameters: 'Topic' instance
+	+ Push message:
+		* Extra info
+		* Message: Someone added new topic
+		* Parameters: 'Topic' instance
+
+- Edited new topic(api/topic)
+	+ Target: Admin group/ Owner topic
+	+ Hub:
+		* Event name: event-edit_topic
+		* Parameters: 'Topic' instance
+	+ Push message:
+		* Extra info
+		* Message: Someone edited topic
+		* Parameters: 'Topic' instance
+
+- Follow a topic(api/topic)
+	+ Target: Topic owner
+	+ Hub:
+		* Event name: follow-topic
+		* Parameters: 
+			* `Follower name`
+                	* `Topic name`
+                	* `Follower created time`
+	+ Push message:
+		* Extra info
+		* Message: Someone follow your topic
+		* Parameters:
+			* `Follower name`
+                	* `Topic name`
+                	* `Follower created time`
+
+- Reply in a topic(api/topic)
+	+ Target: Topic owner
+	+ Hub:
+		* Event name: reply-topic
+		* Parameters: 
+			* `Replier name`
+                	* `Topic name`
+                	* `Replier created time`
+	+ Push message:
+		* Extra info
+		* Message: Someone commented topic
+		* Parameters:
+			* `Replier name`
+                	* `Topic name`
+                	* `Replier created time`
+
+- Report a topic(api/topic)
+	+ Target: Admin group
+	+ Hub:
+		* Event name: report-topic
+		* Parameters: 
+			* `Reporter name`
+                	* `Topic name`
+                	* `Report created time`
+	+ Push message:
+		* Extra info
+		* Message: Someone report this topic
+		* Parameters: 
+			* `Reporter name`
+                	* `Topic name`
+                	* `Report created time`
