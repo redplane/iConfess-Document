@@ -1,30 +1,40 @@
 - Added new category group (api/category-group)
-	+ Target: Admin group
+	+ Target: Admin group | not creator.
+	
 	+ Hub:
 		* Event name: event-add_category_group
 		* Parameters: 'CategoryGroup' instance
+	
 	+ Push message:
-		* Extra info
-		* Message: Someone added new category group
-		* Parameters: 'CategoryGroup' instance
+		* Parameters:
+			- 'User' instance.
+			- 'CategoryGroup' instance
 
+	+ Message: MSG_SOMEONE_CREATED_CATEGORY_GROUP
+	
 - Edited new category group (api/category-group)
-	+ Target: Admin group
+	+ Target: Admin group | not editor
+	
 	+ Hub:
 		* Event name: event-edit_category_group
 		* Parameters: 'CategoryGroup' instance
-	+ Push messafe:
-		* Extra info
-		* Message: Someone edited category group
-		* Parameters: 'CategoryGroup' instance
+	
+	+ Push message:
+		* Parameters: 
+			- 'User' instance
+			- 'CategoryGroup' instance
 
+	+ Message: MSG_SOMEONE_EDITED_CATEGORY_GROUP
+	
 =============================================================================
 
 - Added new category(api/category)
 	+ Target: Admin group
+	
 	+ Hub:
 		* Event name: event-add_category
 		* Parameters: 'Category' instance
+		
 	+ Push message:
 		* Extra info
 		* Message: Someone added new category
@@ -59,24 +69,31 @@
 =============================================================================
 
 - Added new topic(api/topic)
-	+ Target: Admin group
+	+ Target: Category followers
 	+ Hub:
 		* Event name: event-add_topic
-		* Parameters: 'Topic' instance
+		* Parameters: 
+			- 'Topic' instance
+			- 'Category' instance
+		
 	+ Push message:
-		* Extra info
-		* Message: Someone added new topic
-		* Parameters: 'Topic' instance
-
+		* Parameters: 
+			- 'Topic' instance
+			- 'Category' instance
+			
+	+ Message: MSG_TOPIC_ADDED_IN_CATEGORY.
+	
 - Edited new topic(api/topic)
-	+ Target: Admin group/ Owner topic
+	+ Target: People who follow topic. (subscribe to topic | has replies in topic)
 	+ Hub:
 		* Event name: event-edit_topic
 		* Parameters: 'Topic' instance
+			
 	+ Push message:
-		* Extra info
-		* Message: Someone edited topic
 		* Parameters: 'Topic' instance
+		
+	+ Message: MSG_TOPIC_EDITED
+	
 
 - Follow a topic(api/topic)
 	+ Target: Topic owner
@@ -84,44 +101,46 @@
 		* Event name: follow-topic
 		* Parameters: 
 			* `Follower name`
-                	* `Topic name`
-                	* `Follower created time`
+			* `Topic name`
+			* `Follower created time`
+			
 	+ Push message:
-		* Extra info
-		* Message: Someone follow your topic
 		* Parameters:
 			* `Follower name`
-                	* `Topic name`
-                	* `Follower created time`
+			* `Topic name`
+			* `Follower created time`
 
+	+ Message: MSG_SOMEONE_FOLLOW_YOUR_TOPIC
+	
 - Reply in a topic(api/topic)
 	+ Target: Topic owner
 	+ Hub:
 		* Event name: reply-topic
 		* Parameters: 
 			* `Replier name`
-                	* `Topic name`
-                	* `Replier created time`
+			* `Topic name`
+			* `Replier created time`
 	+ Push message:
-		* Extra info
-		* Message: Someone commented topic
 		* Parameters:
 			* `Replier name`
-                	* `Topic name`
-                	* `Replier created time`
-
+			* `Topic name`
+			* `Replier created time`
+					
+	- Message: MSG_SOMEONE_REPLIED_YOUR_TOPIC
+	
 - Report a topic(api/topic)
 	+ Target: Admin group
 	+ Hub:
 		* Event name: report-topic
 		* Parameters: 
 			* `Reporter name`
-                	* `Topic name`
-                	* `Report created time`
+			* `Topic name`
+			* `Report created time`
+			
 	+ Push message:
-		* Extra info
-		* Message: Someone report this topic
 		* Parameters: 
 			* `Reporter name`
-                	* `Topic name`
-                	* `Report created time`
+			* `Topic name`
+			* `Report created time`
+			
+	+ Message: MSG_SOMEONE_REPORTED_TOPIC
