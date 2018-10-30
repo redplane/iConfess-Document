@@ -1,0 +1,748 @@
+{
+	"info": {
+		"_postman_id": "89c22014-b6e4-ebb3-6edf-b0c2677b5211",
+		"name": "iConfess",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Topic",
+			"item": [
+				{
+					"name": "Search for posts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization_code}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/post/search",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"post",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a topic",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization_code}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":0,\"ownerId\":0,\"categoryId\":14,\"title\":\"Kitten 01\",\"body\":\"<p><strong>Kitten 01Kitten 01Kitten 01Kitten 01Kitten 01Kitten 01Kitten 01<em>Kitten 01Kitten 01Kitten 01Kitten 01</em>Kitten 01Kitten 01Kitten 01</strong></p>\",\"type\":0,\"createdTime\":0,\"lastModifiedTime\":null}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/topic",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"topic"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "12339ddd-e465-42cd-acaf-89e63f866a7e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9627a50-9e07-4b7b-b84b-4ceb363b1a38",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Push notification",
+			"item": [
+				{
+					"name": "Send push (debug)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"registrationIds\" : [\"d7Vzw9wBHUI:APA91bH4sOFtf2m6AaKeEGaQkjeEuMrFQcnAkb0vR3SEed1TtzNY8bymeMLuWW3ktN2MtJq84xaZU0W7RtuH6LxCRiKlggJyTxKd4vZA1kJvvGp3w4jPjSkK2fHJ8ph9EtLI4FZ0ZHgx\", \"eYuVAk56-6U:APA91bECZSSqPpF-aNy353D2QPtdL797uF3BPy48cr587FzeugGrWxB9LLXSNAwOUB6ooNJPlWcjcPUZhmPCoCDM7KwL0DOdr8YGpIWV6T_8yfdwpWBdAHrb4f7uuvA5Xmk4DXYpK6CL\"],\r\n    \"notification\" : {\r\n      \"body\" : \"This is an FCM notification message!\",\r\n      \"title\" : \"FCM Message\",\r\n      \"icon\": \"https://vignette.wikia.nocookie.net/callofduty/images/9/98/Delta_Squad_menu_icon_MW3.PNG/revision/latest?cb=20131101160356\"\r\n      }\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/push-notification/send",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"push-notification",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Basic login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@gmail.com\",\n  \"password\": \"abcde12345-\",\n  \"captchaCode\": \"1234\"\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/user/basic-login",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"user",
+								"basic-login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Google login",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idToken\": \"\"\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/user/google-login",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"user",
+								"google-login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Basic register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"redplane_dt@yahoo.com.vn\",\n  \"password\": \"administrator\",\n  \"nickname\": \"Linh Nguyen\"\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/account/basic-register",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"account",
+								"basic-register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload user avatar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization_code}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "undefined",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/user/upload-avatar",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"user",
+								"upload-avatar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Search for categories",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/category/search",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"category",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization_code}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Category 01\"\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/category",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload category photo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization_code}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "categoryId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/category/photo",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"category",
+								"photo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category groups",
+			"item": [
+				{
+					"name": "Add category group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization_code}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Category group 7\",\n\t\"description\": \"Category group 01\"\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/category-group",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"category-group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit category group",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization_code}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Category group 2\",\n\t\"description\": \"Category group 01\"\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/category-group/1",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"category-group",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search for category groups",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization_code}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/category-group/search",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"category-group",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Real time",
+			"item": [
+				{
+					"name": "Add device to group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization_code}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deviceId\": \"fwdtejrROrs:APA91bEV9kcYvpi1Tn4Y6Z5ehWSimi6VeQ7WP9q3fnnGdKaQK-V4I_76AAph-YMYhqVIpQBPsg8avqCrRLmR8EYK7w5-VRLfP6IKTSvcCebt-Ou2Q3HbxaE-SCCZ23971YNdydFrO2Rh\",\n\t\"group\": \"Admin\"\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/real-time/add-device-to-group",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"real-time",
+								"add-device-to-group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get registered devices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/real-time/device-tokens",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"real-time",
+								"device-tokens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Broadcast push message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"registrationIds\": [\"c7jvY7HhoUI:APA91bGhWLN7e0nitL4hq8MeOKJ67FTOl05Sz5_2s4jdMk73F1MFFu4uRldD3FNm2oVLhdwBxaaSl4GJZMyg89n4FIrH8U6gZKisaYsA_dxIaQe0_giWig7iBf5caqJFV4HH_BLd1f2q\"],\n\t\"collapseKey\": \"1\",\n\t\"notification\": {\n\t\t\"title\": \"This is title\",\n\t\t\"body\": \"This is body\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/real-time/push-to-groups",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"real-time",
+								"push-to-groups"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category group",
+			"item": [
+				{
+					"name": "Add category group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization_code}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Category group 01\",\n\t\"description\": \"Category group 01 description\"\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/category-group",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"category-group"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification message",
+			"item": [
+				{
+					"name": "Add notification message (debug)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization_code}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ownerId\": 3,\n\t\"message\": \"SOMEONE_COMMENTED_TOPIC\",\n\t\"extraInfo\": {\n\t\t\"id\": 1\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/notification-message",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"notification-message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search notification messages",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization_code}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"pagination\":{\n\t\t\"page\": 1,\n\t\t\"records\": 30\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/notification-message/search",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"notification-message",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Follow category",
+			"item": [
+				{
+					"name": "Follow category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization_code}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"pagination\":{\n\t\t\"page\": 1,\n\t\t\"records\": 30\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://{{host_name}}:{{host_port}}/api/follow-category?categoryId=4",
+							"protocol": "http",
+							"host": [
+								"{{host_name}}"
+							],
+							"port": "{{host_port}}",
+							"path": [
+								"api",
+								"follow-category"
+							],
+							"query": [
+								{
+									"key": "categoryId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
