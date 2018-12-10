@@ -7,8 +7,8 @@
 	
 	+ Push message:
 		* Parameters:
-			- 'User' instance.
-			- 'CategoryGroup' instance
+			- CreatorName
+			- CategoryGroupName
 
 	+ Message: MSG_SOMEONE_CREATED_CATEGORY_GROUP
 	
